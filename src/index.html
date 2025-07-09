@@ -26,7 +26,7 @@
         <div
           class="text-2xl font-header font-bold flex justify-center items-center flex-1"
         >
-          <p>Tytuł kalkulatora</p>
+          <p>Kalkulator doboru międzyplonów</p>
         </div>
         <div class="h-full flex items-center justify-center">
           <button
@@ -38,29 +38,101 @@
         </div>
       </div>
       <div class="content mt-5 flex justify-around flex-wrap">
-        <div class="section w-80 p-3 flex flex-col justify-start">
+        <div class="w-80 p-3 flex flex-col justify-start" id="buttonsSection">
+          <div class="flex flex-col">
+            <div class="text-2xl mb-5 ml-1 font-bold">
+              Od czego chcesz zacząć?
+            </div>
+            <div class="flex justify-center">
+              <button
+                type="button"
+                id="gatunekWZmianowaniuButton"
+                class="w-full m-2 p-2 h-fit border-2 rounded-2xl font-bold border-black calculation-option"
+              >
+                Chcę się dowiedzieć jaki powinienem mieć gatunek w zmianowaniu
+              </button>
+              <button
+                type="button"
+                id="uprawaNastepczaButton"
+                class="w-full m-2 p-2 h-fit border-2 rounded-2xl font-bold border-black calculation-option"
+              >
+                Chcę się dowiedzieć jaką powinienem mieć uprawę następczą
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="section w-80 p-3 flex flex-col justify-start"
+          id="gatunekWZmianowaniuSection"
+        >
           <div class="mb-5 section-name text-lg font-bold text-center">
-            NAZWA SEKCJI
+            GATUNEK W ZMIANOWANIU
           </div>
           <div class="section-content">
-            <div class="input mb-5 flex">
-              <input
-                type="text"
-                class="w-24 h-12 pl-2 text-xl border-2 border-[var(--bg-info)] rounded-3xl flex-1 hover:bg-[var(--bg-info)]/25"
-                id=""
-                placeholder="podaj wartość x"
-              />
-              <div class="ml-2 text-xl flex items-center">jednostka</div>
-            </div>
-            <div class="info mb-5">
-              <div class="text-2xl text-center">
-                Tu wpisz tekst do wyświetlenia, np. wynik:
-              </div>
-              <div
-                class="text-3xl mt-4 text-[var(--top-agrar-green)] text-center"
+            <div class="input mb-5">
+              <select
+                id="GatunekWZmianowaniu"
+                title="Gatunek w zmianowaniu"
+                class="w-full h-12 pl-2 text-xl border-2 border-[var(--bg-info)] rounded-3xl mb-2 hover:bg-[var(--bg-info)]/25"
               >
-                wynik j<sup>2</sup>
-              </div>
+                <option value="" disabled selected>Wybierz gatunek</option>
+              </select>
+              <select
+                id="UprawaPosredniaGatunekWZmianowaniu"
+                title="Uprawa pośrednia"
+                class="w-full h-12 pl-2 text-xl border-2 border-[var(--bg-info)] rounded-3xl mb-2 hover:bg-[var(--bg-info)]/25"
+              >
+                <option value="" disabled selected>
+                  Wybierz uprawę pośrednią
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div
+          class="section w-80 p-3 flex flex-col justify-start"
+          id="uprawaNastepczaSection"
+        >
+          <div class="mb-5 section-name text-lg font-bold text-center">
+            UPRAWA NASTĘPCZA
+          </div>
+          <div class="section-content">
+            <div class="input mb-5">
+              <select
+                id="uprawaNastepcza"
+                title="uprawa następcza"
+                class="w-full h-12 pl-2 text-xl border-2 border-[var(--bg-info)] rounded-3xl mb-2 hover:bg-[var(--bg-info)]/25"
+              >
+                <option value="" disabled selected>
+                  Wybierz uprawę następczą
+                </option>
+              </select>
+              <select
+                id="UprawaPosredniaUprawaNastepcza"
+                title="Uprawa pośrednia"
+                class="w-full h-12 pl-2 text-xl border-2 border-[var(--bg-info)] rounded-3xl hover:bg-[var(--bg-info)]/25"
+              >
+                <option value="" disabled selected>
+                  Wybierz uprawę pośrednią
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div
+          class="section w-80 p-3 flex flex-col justify-start"
+          id="wynikiSection"
+        >
+          <div class="mb-5 section-name text-lg font-bold text-center">
+            WYNIKI
+          </div>
+          <div class="section-content">
+            <div class="info mb-5 flex justify-center text-2xl">
+              <!-- <div class="">Wynik:</div> -->
+              <div class="pl-2" id="wynikText"></div>
+            </div>
+            <div class="text-xl flex justify-center" id="wynikText2">
+              sdfsdf
             </div>
           </div>
         </div>
