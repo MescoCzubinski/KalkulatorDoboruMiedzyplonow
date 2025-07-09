@@ -37,26 +37,26 @@
           </button>
         </div>
       </div>
-      <div class="content mt-5 flex justify-around flex-wrap">
-        <div class="w-80 p-3 flex flex-col justify-start" id="buttonsSection">
+      <div class="content mt-5 mb-4 flex justify-around flex-wrap">
+        <div class="w-80 flex flex-col justify-start" id="buttonsSection">
           <div class="flex flex-col">
-            <div class="text-2xl mb-5 ml-1 font-bold">
-              Od czego chcesz zacząć?
+            <div class="text-2xl mb-5 ml-1 font-bold text-center">
+              Chcę sprawdzić:
             </div>
             <div class="flex justify-center">
-              <button
-                type="button"
-                id="gatunekWZmianowaniuButton"
-                class="w-full m-2 p-2 h-fit border-2 rounded-2xl font-bold border-black calculation-option"
-              >
-                Chcę się dowiedzieć jaki powinienem mieć gatunek w zmianowaniu
-              </button>
               <button
                 type="button"
                 id="uprawaNastepczaButton"
                 class="w-full m-2 p-2 h-fit border-2 rounded-2xl font-bold border-black calculation-option"
               >
-                Chcę się dowiedzieć jaką powinienem mieć uprawę następczą
+                przydatność jako przedplon dla...
+              </button>
+              <button
+                type="button"
+                id="gatunekWZmianowaniuButton"
+                class="w-full m-2 p-2 h-fit border-2 rounded-2xl font-bold border-black calculation-option"
+              >
+                przydatność w zmianowaniu z gatunkiem...
               </button>
             </div>
           </div>
@@ -66,24 +66,28 @@
           id="gatunekWZmianowaniuSection"
         >
           <div class="mb-5 section-name text-lg font-bold text-center">
-            GATUNEK W ZMIANOWANIU
+            Przydatność w zmianowaniu z gatunkiem...
           </div>
           <div class="section-content">
             <div class="input mb-5">
+              <label class="ml-2 text-xl">Gatunek w zmianowaniu:</label>
               <select
                 id="GatunekWZmianowaniu"
                 title="Gatunek w zmianowaniu"
                 class="w-full h-12 pl-2 text-xl border-2 border-[var(--bg-info)] rounded-3xl mb-2 hover:bg-[var(--bg-info)]/25"
               >
-                <option value="" disabled selected>Wybierz gatunek</option>
+                <option value="" disabled selected hidden>
+                  wybierz uprawę
+                </option>
               </select>
+              <label class="ml-2 text-xl">Międzyplon:</label>
               <select
                 id="UprawaPosredniaGatunekWZmianowaniu"
                 title="Uprawa pośrednia"
                 class="w-full h-12 pl-2 text-xl border-2 border-[var(--bg-info)] rounded-3xl mb-2 hover:bg-[var(--bg-info)]/25"
               >
-                <option value="" disabled selected>
-                  Wybierz uprawę pośrednią
+                <option value="" disabled selected hidden>
+                  wybierz międzyplon
                 </option>
               </select>
             </div>
@@ -94,27 +98,27 @@
           id="uprawaNastepczaSection"
         >
           <div class="mb-5 section-name text-lg font-bold text-center">
-            UPRAWA NASTĘPCZA
+            Przydatność jako przedplon dla...
           </div>
           <div class="section-content">
             <div class="input mb-5">
+              <label class="ml-2 text-xl">Uprawa następcza:</label>
               <select
                 id="uprawaNastepcza"
                 title="uprawa następcza"
                 class="w-full h-12 pl-2 text-xl border-2 border-[var(--bg-info)] rounded-3xl mb-2 hover:bg-[var(--bg-info)]/25"
               >
-                <option value="" disabled selected>
-                  Wybierz uprawę następczą
+                <option value="" disabled selected hidden>
+                  wybierz uprawę
                 </option>
               </select>
+              <label class="ml-2 text-xl">Międzyplon:</label>
               <select
                 id="UprawaPosredniaUprawaNastepcza"
                 title="Uprawa pośrednia"
                 class="w-full h-12 pl-2 text-xl border-2 border-[var(--bg-info)] rounded-3xl hover:bg-[var(--bg-info)]/25"
               >
-                <option value="" disabled selected>
-                  Wybierz uprawę pośrednią
-                </option>
+                <option value="" disabled selected>wybierz międzyplon</option>
               </select>
             </div>
           </div>
@@ -123,16 +127,16 @@
           class="section w-80 p-3 flex flex-col justify-start"
           id="wynikiSection"
         >
-          <div class="mb-5 section-name text-lg font-bold text-center">
-            WYNIKI
-          </div>
-          <div class="section-content">
-            <div class="info mb-5 flex justify-center text-2xl">
-              <!-- <div class="">Wynik:</div> -->
-              <div class="pl-2" id="wynikText"></div>
-            </div>
-            <div class="text-xl flex justify-center" id="wynikText2">
-              sdfsdf
+        <div class="mb-5 section-name text-lg font-bold text-center">
+          WYNIKI
+        </div>
+        <div class="rounded-3xl border p-2 w-full h-fit" id="wynikiContainer">
+            <div class="section-content">
+              <div class="info m-1 flex justify-center text-2xl">
+                <div class="pl-2 text-center" id="wynikText"></div>
+              </div>
+              <div class="text-lg text-center" id="wynikText2"></div>
+              </div>
             </div>
           </div>
         </div>

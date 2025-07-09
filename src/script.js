@@ -232,7 +232,7 @@ const resultText = {
   11: {
     text1: "wpływ korzystny",
     text2:
-      "możliwy wpływ (pozytywny lub negatywny) na rozwój zgorzeli podstawy źdźbła (Gaeumannomyces graminis)",
+      "możliwy wpływ (pozytywny lub negatywny) na rozwój zgorzeli podstawy źdźbła <i>Gaeumannomyces graminis</i>",
     color: "#3A7C22",
   },
   12: {
@@ -357,8 +357,7 @@ const resultText = {
   6: { text1: "uprawa niewskazana", text2: "bez przypisu", color: "#EE0000" },
   61: {
     text1: "uprawa niewskazana",
-    text2:
-      "ryzyko namnożenia Aphanomyces - wrażliwość odmiany gatunku można sprawdzić na stronie www.terresinovia.fr w sekcji dla bobowatych",
+    text2: `ryzyko namnożenia <i>Aphanomyces</i> - wrażliwość odmiany gatunku można sprawdzić na stronie <a target="_blank" class="underline" href="https://www.terresinovia.fr">www.terresinovia.fr</a> w sekcji dla bobowatych`,
     color: "#EE0000",
   },
   62: {
@@ -406,8 +405,7 @@ const resultText = {
   },
   699: {
     text1: "uprawa niewskazana",
-    text2:
-      "ryzyko rozwoju zgnilizny twardzikowej jeśli dojdzie do wytworzenia sklerocji, ryzyko namnożenia Aphanomyces - wrażliwość odmiany gatunku można sprawdzić na stronie www.terresinovia.fr w sekcji dla bobowatych",
+    text2: `ryzyko rozwoju zgnilizny twardzikowej jeśli dojdzie do wytworzenia sklerocji, ryzyko namnożenia <i>Aphanomyces</i> - wrażliwość odmiany gatunku można sprawdzić na stronie <a target="_blank" class="underline" href="https://www.terresinovia.fr">www.terresinovia.fr</a> w sekcji dla bobowatych`,
     color: "#EE0000",
   },
   690: {
@@ -418,8 +416,7 @@ const resultText = {
   },
   691: {
     text1: "uprawa niewskazana",
-    text2:
-      "trudność zwalczania gatunków wieloletnich w uprawach następczych, ryzyko rozwoju zgnilizny twardzikowej jeśli dojdzie do wytworzenia sklerocji, ryzyko namnożenia Aphanomyces - wrażliwość odmiany gatunku można sprawdzić na stronie www.terresinovia.fr w sekcji dla bobowatych",
+    text2: `trudność zwalczania gatunków wieloletnich w uprawach następczych, ryzyko rozwoju zgnilizny twardzikowej jeśli dojdzie do wytworzenia sklerocji, ryzyko namnożenia <i>Aphanomyces</i> - wrażliwość odmiany gatunku można sprawdzić na stronie <a target="_blank" class="underline" href="https://www.terresinovia.fr">www.terresinovia.fr</a> w sekcji dla bobowatych`,
     color: "#EE0000",
   },
   692: {
@@ -429,8 +426,7 @@ const resultText = {
   },
   693: {
     text1: "uprawa niewskazana",
-    text2:
-      "trudność zwalczania gatunków wieloletnich w uprawach następczych, ryzyko namnożenia Aphanomyces - wrażliwość odmiany gatunku można sprawdzić na stronie www.terresinovia.fr w sekcji dla bobowatych",
+    text2: `trudność zwalczania gatunków wieloletnich w uprawach następczych, ryzyko namnożenia <i>Aphanomyces</i> - wrażliwość odmiany gatunku można sprawdzić na stronie <a target="_blank" class="underline" href="https://www.terresinovia.fr">www.terresinovia.fr</a> w sekcji dla bobowatych`,
     color: "#EE0000",
   },
   694: {
@@ -455,6 +451,7 @@ const uprawaNastepczaSection = document.getElementById(
 );
 
 const wynikiSection = document.getElementById("wynikiSection");
+const wynikiContainer = document.getElementById("wynikiContainer");
 const wynikText = document.getElementById("wynikText");
 const wynikText2 = document.getElementById("wynikText2");
 
@@ -482,10 +479,12 @@ gatunekWZmianowaniuButton.addEventListener("click", () => {
       console.log(result);
 
       const resultInfo = resultText[result];
-      wynikText.textContent = resultInfo.text1;
-      wynikText.style.color = resultInfo.color;
-      wynikText2.textContent = resultInfo.text2;
-      wynikText2.style.color = resultInfo.color;
+      wynikText.innerHTML = resultInfo.text1;
+      resultInfo.text2 !== "bez przypisu"
+        ? (wynikText2.innerHTML = resultInfo.text2)
+        : null;
+      wynikiContainer.style.backgroundColor = resultInfo.color;
+      wynikiContainer.style.borderBlockColor = "#000";
       wynikiSection.style.display = "block";
     }
   };
@@ -516,10 +515,12 @@ uprawaNastepczaButton.addEventListener("click", () => {
       console.log(result);
 
       const resultInfo = resultText[result];
-      wynikText.textContent = resultInfo.text1;
-      wynikText.style.color = resultInfo.color;
-      wynikText2.textContent = resultInfo.text2;
-      wynikText2.style.color = resultInfo.color;
+      wynikText.innerHTML = resultInfo.text1;
+      resultInfo.text2 !== "bez przypisu"
+        ? (wynikText2.innerHTML = resultInfo.text2)
+        : null;
+      wynikiContainer.style.backgroundColor = resultInfo.color;
+      wynikiContainer.style.borderBlockColor = "#000";
       wynikiSection.style.display = "block";
     }
   };
@@ -531,4 +532,4 @@ uprawaNastepczaButton.addEventListener("click", () => {
   );
 });
 
-//8 min (rozmowa) + 10 min (init)
+//8 min (call) + 10 min (init) + 100 min (mvp) + 65 min (fixes)
