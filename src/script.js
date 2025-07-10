@@ -34,7 +34,7 @@ function populateSelect(selectId, options) {
     select.appendChild(optionElement);
   });
 }
-const gatunekWZmianowaniu = [
+const gatunekWZmianowaniuArr = [
   "Groch",
   "Fasola",
   "Soczewica",
@@ -45,9 +45,9 @@ const gatunekWZmianowaniu = [
   "Rzepak (obecność kiły kapusty)",
   "Rzepak (bez kiły kapusty)",
 ];
-populateSelect("GatunekWZmianowaniu", gatunekWZmianowaniu);
+populateSelect("GatunekWZmianowaniu", gatunekWZmianowaniuArr);
 
-const uprawaNastepcza = [
+const uprawaNastepczaArr = [
   "Pszenica po pszenicy",
   "Inne zboże ozime",
   "Jęczmień jary",
@@ -68,7 +68,7 @@ const uprawaNastepcza = [
   "Len (oleisty i włóknisty)",
   "Konopie",
 ];
-populateSelect("uprawaNastepcza", uprawaNastepcza);
+populateSelect("uprawaNastepcza", uprawaNastepczaArr);
 
 const UprawaPosrednia = [
   "Gorczyca biała mątwikobójcza",
@@ -455,6 +455,17 @@ const wynikiContainer = document.getElementById("wynikiContainer");
 const wynikText = document.getElementById("wynikText");
 const wynikText2 = document.getElementById("wynikText2");
 
+const reset = document.getElementById("reset");
+
+const uprawaNastepcza = document.getElementById("uprawaNastepcza");
+const UprawaPosredniaUprawaNastepcza = document.getElementById(
+  "UprawaPosredniaUprawaNastepcza"
+);
+const gatunekWZmianowaniu = document.getElementById("GatunekWZmianowaniu");
+const UprawaPosredniaGatunekWZmianowaniu = document.getElementById(
+  "UprawaPosredniaGatunekWZmianowaniu"
+);
+
 gatunekWZmianowaniuSection.style.display = "none";
 uprawaNastepczaSection.style.display = "none";
 wynikiSection.style.display = "none";
@@ -462,11 +473,6 @@ wynikiSection.style.display = "none";
 gatunekWZmianowaniuButton.addEventListener("click", () => {
   buttonsSection.style.display = "none";
   gatunekWZmianowaniuSection.style.display = "block";
-
-  const gatunekWZmianowaniu = document.getElementById("GatunekWZmianowaniu");
-  const UprawaPosredniaGatunekWZmianowaniu = document.getElementById(
-    "UprawaPosredniaGatunekWZmianowaniu"
-  );
 
   const handleResultCalculation = () => {
     const gatunekValue = gatunekWZmianowaniu.value;
@@ -476,7 +482,6 @@ gatunekWZmianowaniuButton.addEventListener("click", () => {
         gatunekWZmianowaniu_uprawaPosrednia_Matrix[Number(gatunekValue)][
           Number(uprawaValue)
         ];
-      console.log(result);
 
       const resultInfo = resultText[result];
       wynikText.innerHTML = resultInfo.text1;
@@ -499,11 +504,6 @@ uprawaNastepczaButton.addEventListener("click", () => {
   buttonsSection.style.display = "none";
   uprawaNastepczaSection.style.display = "block";
 
-  const uprawaNastepcza = document.getElementById("uprawaNastepcza");
-  const UprawaPosredniaUprawaNastepcza = document.getElementById(
-    "UprawaPosredniaUprawaNastepcza"
-  );
-
   const handleResultCalculation = () => {
     const uprawaNastepczaValue = uprawaNastepcza.value;
     const uprawaValue = UprawaPosredniaUprawaNastepcza.value;
@@ -512,7 +512,6 @@ uprawaNastepczaButton.addEventListener("click", () => {
         uprawaNastepcza_uprawaPosrednia_Matrix[Number(uprawaNastepczaValue)][
           Number(uprawaValue)
         ];
-      console.log(result);
 
       const resultInfo = resultText[result];
       wynikText.innerHTML = resultInfo.text1;
@@ -530,6 +529,28 @@ uprawaNastepczaButton.addEventListener("click", () => {
     "change",
     handleResultCalculation
   );
+});
+
+reset.addEventListener("click", () => {
+  buttonsSection.style.display = "block";
+  gatunekWZmianowaniuSection.style.display = "none";
+  uprawaNastepczaSection.style.display = "none";
+  wynikiSection.style.display = "none";
+
+  wynikText.innerHTML = "";
+  wynikText2.innerHTML = "";
+  wynikiContainer.style.backgroundColor = "#fff";
+  wynikiContainer.style.borderBlockColor = "#fff";
+
+  GatunekWZmianowaniu.value = "";
+  UprawaPosredniaGatunekWZmianowaniu.value = "";
+  uprawaNastepcza.value = "";
+  UprawaPosredniaUprawaNastepcza.value = "";
+
+  GatunekWZmianowaniu.classList.remove("visited");
+  UprawaPosredniaGatunekWZmianowaniu.classList.remove("visited");
+  uprawaNastepcza.classList.remove("visited");
+  UprawaPosredniaUprawaNastepcza.classList.remove("visited");
 });
 
 //8 min (call) + 10 min (init) + 100 min (mvp) + 65 min (fixes)
