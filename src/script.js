@@ -90,7 +90,7 @@ gatunekWZmianowaniuButton.addEventListener("click", () => {
       wynikText.innerHTML = resultInfo.text1;
       resultInfo.text2 !== "bez przypisu"
         ? (wynikText2.innerHTML = resultInfo.text2)
-        : null;
+        : (wynikText2.innerHTML = "");
       wynikiContainer.style.backgroundColor = resultInfo.color;
       wynikiContainer.style.borderBlockColor = "#000";
       wynikiSection.style.display = "block";
@@ -120,7 +120,7 @@ uprawaNastepczaButton.addEventListener("click", () => {
       wynikText.innerHTML = resultInfo.text1;
       resultInfo.text2 !== "bez przypisu"
         ? (wynikText2.innerHTML = resultInfo.text2)
-        : null;
+        : (wynikText2.innerHTML = "");
       wynikiContainer.style.backgroundColor = resultInfo.color;
       wynikiContainer.style.borderBlockColor = "#000";
       wynikiSection.style.display = "block";
